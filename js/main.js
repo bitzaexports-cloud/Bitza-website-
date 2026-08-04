@@ -20,24 +20,72 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // --- 2. Mobile Drawer Menu ---
+  // --- 2. Mobile Drawer Menu & Backdrop ---
   const burgerBtn = document.getElementById('burgerBtn');
   const mobilePanel = document.getElementById('mobilePanel');
   
+  let backdrop = document.querySelector('.mobile-nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'mobile-nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  const closeMenu = () => {
+    if (burgerBtn) {
+      burgerBtn.classList.remove('active');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      burgerBtn.setAttribute('aria-label', 'Open navigation menu');
+    }
+    if (mobilePanel) {
+      mobilePanel.classList.remove('open');
+    }
+    if (backdrop) {
+      backdrop.classList.remove('open');
+    }
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  const openMenu = () => {
+    if (burgerBtn) {
+      burgerBtn.classList.add('active');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      burgerBtn.setAttribute('aria-label', 'Close navigation menu');
+    }
+    if (mobilePanel) {
+      mobilePanel.classList.add('open');
+    }
+    if (backdrop) {
+      backdrop.classList.add('open');
+    }
+    document.body.classList.add('overflow-hidden');
+  };
+
   if (burgerBtn && mobilePanel) {
-    burgerBtn.addEventListener('click', () => {
-      burgerBtn.classList.toggle('active');
-      mobilePanel.classList.toggle('open');
-      document.body.classList.toggle('overflow-hidden');
+    burgerBtn.setAttribute('aria-label', 'Open navigation menu');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobilePanel.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    // Close mobile panel on clicking any navigation link
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMenu);
+    }
+
     mobilePanel.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        burgerBtn.classList.remove('active');
-        mobilePanel.classList.remove('open');
-        document.body.classList.remove('overflow-hidden');
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobilePanel.classList.contains('open')) {
+        closeMenu();
+      }
     });
   }
 

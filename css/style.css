@@ -392,26 +392,52 @@ header.scrolled .logo-container img {
   transition: transform 0.25s ease;
 }
 
-/* Mobile Hamburger Menu */
+/* Mobile Navigation Backdrop Overlay */
+.mobile-nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(3, 42, 31, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-nav-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile Hamburger Menu (44px x 44px Clickable Hit Area) */
 .burger-menu {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 18px;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
+  box-sizing: border-box;
   z-index: 1001;
 }
 
 .burger-menu span {
-  width: 100%;
+  width: 24px;
   height: 2px;
   background-color: var(--color-forest);
   border-radius: 2px;
-  transition: var(--transition-fast);
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), opacity 250ms ease;
+  display: block;
 }
 
 .burger-menu.active span:nth-child(1) {
@@ -431,15 +457,16 @@ header.scrolled .logo-container img {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 100%;
+  width: 88vw;
   max-width: 380px;
   height: 100vh;
   background-color: var(--color-ivory);
   box-shadow: -10px 0 30px rgba(0, 30, 20, 0.15);
   z-index: 1000;
-  padding: 6rem 2rem 2rem 2rem;
-  transition: right 0.4s ease;
+  padding: 5.5rem 1.8rem 2rem 1.8rem;
+  transition: right 350ms cubic-bezier(0.22, 1, 0.36, 1);
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .mobile-nav-panel.open {
@@ -454,18 +481,26 @@ header.scrolled .logo-container img {
 }
 
 .mobile-nav-links a {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-forest);
+  display: block;
+  padding: 0.4rem 0;
+  transition: color 200ms ease;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links li.active > a {
+  color: var(--color-orange);
 }
 
 .mobile-sub-menu {
   list-style: none;
   padding-left: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .mobile-sub-menu a {
@@ -4404,6 +4439,62 @@ textarea:focus {
     display: flex !important;
     flex-direction: column !important;
     gap: 2rem !important;
+  }
+
+  /* Values Section 01 / 02 / 03 Mobile Vertical Stack */
+  .about-highlights-row {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    margin-top: 2.5rem !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+    width: 100% !important;
+  }
+
+  .highlight-divider {
+    width: 100% !important;
+    height: 1px !important;
+    background-color: rgba(6, 61, 46, 0.1) !important;
+    margin: 0 !important;
+  }
+
+  .highlight-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1.2rem !important;
+    width: 100% !important;
+    padding: 24px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .highlight-num {
+    font-family: var(--font-serif) !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: var(--color-orange) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    flex-shrink: 0 !important;
+    line-height: 1 !important;
+  }
+
+  .highlight-content {
+    flex: 1 !important;
+  }
+
+  .highlight-content h4 {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    color: var(--color-forest) !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .highlight-content p {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    color: rgba(11, 37, 28, 0.75) !important;
   }
 
   /* Product Catalogue & Grid Overhaul */
