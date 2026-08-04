@@ -2166,38 +2166,52 @@ header.scrolled .logo-container img {
   opacity: 0.4;
 }
 
-/* Website Credit in Footer */
+/* Website Credit in Footer with Official Grozera Logo */
 .site-credit {
   color: rgba(250, 246, 238, 0.65);
   font-size: 0.82rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .grozera-link {
-  color: var(--color-orange) !important;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
-  transition: color 250ms ease;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--color-orange) !important;
+  transition: transform 220ms ease;
+  white-space: nowrap;
+}
+
+.grozera-logo-img {
+  height: 19px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.88;
+  transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
+  object-fit: contain;
 }
 
 .grozera-arrow {
   display: inline-block;
   font-size: 0.85em;
-  transition: transform 250ms ease;
+  color: var(--color-orange);
+  transition: transform 220ms ease, color 220ms ease;
 }
 
-.grozera-link:hover {
-  color: #ff6b3d !important;
+.grozera-link:hover .grozera-logo-img {
+  opacity: 1;
+  filter: brightness(1.15);
+  transform: scale(1.02);
 }
 
 .grozera-link:hover .grozera-arrow {
-  transform: translate(2.5px, -2.5px);
+  transform: translate(2px, -2px);
+  color: #ff6b3d;
 }
 
 /* Responsive Footer */
