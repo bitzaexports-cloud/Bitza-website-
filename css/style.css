@@ -203,7 +203,7 @@ header.scrolled {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0 32px;
 }
@@ -211,7 +211,7 @@ header.scrolled {
 .logo-container {
   display: flex;
   align-items: center;
-  margin-right: 44px;
+  margin-right: clamp(24px, 2.5vw, 40px);
   flex-shrink: 0;
 }
 
@@ -231,7 +231,7 @@ header.scrolled .logo-container img {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: clamp(16px, 1.8vw, 28px);
+  gap: clamp(14px, 1.8vw, 30px);
   margin: 0;
   padding: 0;
 }
@@ -326,30 +326,12 @@ header.scrolled .logo-container img {
   color: var(--color-orange);
 }
 
-/* Nav Right Actions */
+/* Nav Right Actions (CTA Group) */
 .nav-right-actions {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  margin-left: auto;
+  margin-left: clamp(32px, 3.5vw, 56px);
   flex-shrink: 0;
-}
-
-.lang-selector {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-forest);
-  cursor: pointer;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-
-.lang-selector:hover {
-  background-color: rgba(6, 61, 46, 0.04);
 }
 
 /* Get a Quote Button */
@@ -2272,7 +2254,7 @@ header.scrolled .logo-container img {
   }
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 1023px) {
   .nav-links {
     display: none;
   }
