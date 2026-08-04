@@ -2166,46 +2166,61 @@ header.scrolled .logo-container img {
   opacity: 0.4;
 }
 
-/* Website by GROZERA Black Button Credit */
+/* Website by GROZERA Black Capsule Badge Credit */
+.bottom-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  vertical-align: middle;
+}
+
 .grozera-btn-credit {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 16px;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
   background-color: #000000;
   border: 1px solid rgba(250, 246, 238, 0.22);
-  border-radius: 24px;
+  border-radius: 9999px;
   text-decoration: none;
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   white-space: nowrap;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin-left: 0.5rem;
 }
 
 .credit-label {
   color: rgba(250, 246, 238, 0.75);
-  font-size: 0.78rem;
+  font-size: 12.5px;
   font-weight: 500;
   letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .grozera-btn-logo {
-  height: 18px;
-  width: auto;
+  width: 88px;
+  height: auto;
+  max-height: 15px;
   display: inline-block;
   vertical-align: middle;
   object-fit: contain;
-  border-radius: 2px;
+  border-radius: 0;
   transition: transform 250ms ease;
 }
 
 .grozera-btn-arrow {
   color: var(--color-orange);
-  font-size: 0.85rem;
+  font-size: 12.5px;
   font-weight: 700;
+  line-height: 1;
   transition: transform 250ms ease;
 }
 
-/* Black Button Hover State */
+/* Black Capsule Badge Hover State */
 .grozera-btn-credit:hover {
   background-color: #080808;
   border-color: var(--color-orange);
@@ -2218,7 +2233,7 @@ header.scrolled .logo-container img {
 }
 
 .grozera-btn-credit:hover .grozera-btn-arrow {
-  transform: translate(2.5px, -2.5px);
+  transform: translate(2px, -2px);
   color: #FF6B3D;
 }
 
@@ -2931,34 +2946,335 @@ header.scrolled .logo-container img {
   margin-top: 2rem;
 }
 
-@media (max-width: 1024px) {
-  .about-hero-grid,
-  .about-origin-grid,
-  .farm-portfolio-grid,
-  .bev-story-card,
-  .our-bev-grid,
-  .global-export-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+/* ==========================================================================
+   ABOUT US PAGE — DESKTOP GRID MAPPINGS & MOBILE RESPONSIVE SYSTEM
+   ========================================================================== */
+
+@media (min-width: 1025px) {
+  .about-origin-grid {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    gap: 4rem;
+    align-items: center;
+    grid-template-areas:
+      "img header"
+      "img points";
   }
-  .values-4col-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .origin-main-img-wrap {
+    grid-area: img;
   }
+  .origin-header-block {
+    grid-area: header;
+  }
+  .origin-points-list {
+    grid-area: points;
+  }
+
   .bev-story-card {
-    padding: 40px 30px;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 3.5rem;
+    align-items: center;
+    grid-template-areas:
+      "header img"
+      "points img"
+      "cta img";
+  }
+  .bev-header-block {
+    grid-area: header;
+  }
+  .bev-story-points {
+    grid-area: points;
+  }
+  .bev-cta-wrap {
+    grid-area: cta;
+    margin-top: 1rem;
+  }
+  .bev-factory-img-wrap {
+    grid-area: img;
+  }
+
+  .global-export-grid {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 4rem;
+    align-items: center;
+    grid-template-areas:
+      "header img"
+      "indicators img";
+  }
+  .export-header-block {
+    grid-area: header;
+  }
+  .export-indicators-grid {
+    grid-area: indicators;
+  }
+  .export-img-frame {
+    grid-area: img;
   }
 }
 
-@media (max-width: 768px) {
-  .values-4col-grid,
-  .export-indicators-grid,
-  .farm-images-col {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  /* Major Section Rhythm & Spacing (72-88px) */
+  .about-hero-section,
+  .about-origin-section,
+  .about-farm-portfolio-section,
+  .about-beverage-story-section,
+  .about-our-beverages-section,
+  .about-global-export-section,
+  .about-values-section,
+  .about-final-cta-section {
+    padding: 76px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
+
+  .about-hero-section {
+    padding-top: 48px !important;
+    padding-bottom: 72px !important;
+  }
+
+  /* Section Headings */
+  .about-hero-headline,
+  .serif-title-h2,
+  .bev-story-headline,
+  .serif-title-white {
+    font-size: clamp(34px, 8.5vw, 42px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.015em;
+  }
+
+  /* Eyebrows */
+  .eyebrow-orange,
+  .pl-eyebrow,
+  .section-eyebrow-orange {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.6rem !important;
+    display: inline-block;
+  }
+
+  /* Body Copy */
+  .about-hero-lead,
+  .about-story-p,
+  .bev-story-desc,
+  .lead,
+  .lead-white {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    max-width: 100% !important;
+  }
+
+  /* SECTION 1: HERO */
+  .about-hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+
+  .about-hero-img-wrap {
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+  }
+
+  /* SECTION 2: OUR ORIGIN */
+  .about-origin-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.8rem !important;
+    grid-template-areas: none !important;
+  }
+
+  .origin-main-img-wrap {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .origin-main-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .origin-points-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin-top: 0.5rem !important;
+    padding-top: 1.5rem !important;
+    border-top: 1px solid rgba(6, 61, 46, 0.1) !important;
+  }
+
+  .origin-point-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  /* SECTION 3: AGRICULTURAL SOURCING */
+  .farm-portfolio-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .farm-img-card {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 16px !important;
+  }
+
+  .farm-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* SECTION 4: BEYOND SPICES / BEVERAGE STORY */
+  .bev-story-card {
+    background-color: var(--color-forest-dark) !important;
+    border-radius: 20px !important;
+    padding: 32px 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.6rem !important;
+    grid-template-areas: none !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .bev-factory-img-wrap {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  .bev-factory-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .bev-cta-wrap {
+    width: 100% !important;
+  }
+
+  .bev-cta-wrap .btn-pl-primary {
+    min-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.85rem 1.6rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* SECTION 5: OUR BEVERAGES */
+  .our-bev-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .bev-family-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 16px !important;
+  }
+
+  .bev-family-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* SECTION 6: GLOBAL REACH */
+  .global-export-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    grid-template-areas: none !important;
+  }
+
+  .export-img-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .export-main-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .export-indicators-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    padding-top: 1.5rem !important;
+    border-top: none !important;
+  }
+
+  .export-ind-card {
+    padding-bottom: 1.4rem !important;
+    border-bottom: 1px solid rgba(6, 61, 46, 0.1) !important;
+  }
+
+  .export-ind-card:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* SECTION 7: COMPANY VALUES */
+  .values-4col-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+  }
+
+  .value-col-card {
+    padding: 1.8rem 1.4rem !important;
+    border-radius: 14px !important;
+  }
+
+  /* SECTION 8: FINAL PARTNER CTA */
+  .about-cta-card {
+    padding: 40px 22px !important;
+    border-radius: 20px !important;
+  }
+
   .about-cta-buttons {
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+
+  .about-cta-buttons .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
   }
 }
+
 
 /* ==========================================================================
    PRODUCTS CATALOGUE PAGE — REBUILT DESIGN SYSTEM
@@ -4959,6 +5275,58 @@ textarea:focus {
     text-align: center !important;
     padding-top: 1.5rem !important;
   }
+
+  .bottom-right {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    width: 100% !important;
+  }
+
+  /* Website by Grozera Capsule Badge Credit — Mobile & Tablet Responsive Alignment */
+  .grozera-btn-credit {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    max-width: 215px !important;
+    min-width: 190px !important;
+    height: 40px !important;
+    padding: 0 14px !important;
+    gap: 8px !important;
+    margin: 8px auto 0 auto !important;
+    background-color: #000000 !important;
+    border: 1px solid rgba(250, 246, 238, 0.22) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+  }
+
+  .grozera-btn-credit .credit-label {
+    font-size: 12.5px !important;
+    font-weight: 500 !important;
+    color: rgba(250, 246, 238, 0.75) !important;
+    line-height: 1 !important;
+  }
+
+  .grozera-btn-credit .grozera-btn-logo {
+    width: 88px !important;
+    height: auto !important;
+    max-height: 15px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+
+  .grozera-btn-credit .grozera-btn-arrow {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: var(--color-orange) !important;
+    line-height: 1 !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -4969,8 +5337,8 @@ textarea:focus {
   .footer-container, 
   .nav-container, 
   .utility-container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
   h1, .hero-serif-headline {
@@ -4979,8 +5347,17 @@ textarea:focus {
     line-height: 1.05 !important;
   }
 
-  h2, .section-header h2, .serif-title-white, .cat-block-header h2, .pl-headline {
-    font-size: 25px !important;
+  h2, .section-header h2, .cat-block-header h2, .pl-headline {
+    font-size: 26px !important;
+  }
+
+  /* Protect About Us Page Typography on Mobile */
+  .about-hero-headline,
+  .serif-title-h2,
+  .bev-story-headline,
+  .serif-title-white {
+    font-size: 34px !important;
+    line-height: 1.08 !important;
   }
 
   .pulingo-attr-item strong {
@@ -4997,12 +5374,28 @@ textarea:focus {
     font-size: 29px !important;
     letter-spacing: -0.025em !important;
   }
+
+  .about-hero-headline,
+  .serif-title-h2,
+  .bev-story-headline,
+  .serif-title-white {
+    font-size: 32px !important;
+    line-height: 1.1 !important;
+  }
 }
 
 @media (max-width: 320px) {
   h1, .hero-serif-headline {
     font-size: 25px !important;
     letter-spacing: -0.025em !important;
+  }
+
+  .about-hero-headline,
+  .serif-title-h2,
+  .bev-story-headline,
+  .serif-title-white {
+    font-size: 30px !important;
+    line-height: 1.1 !important;
   }
 }
 
