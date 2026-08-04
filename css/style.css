@@ -4345,10 +4345,10 @@ textarea:focus {
 
   /* Responsive Mobile Typography System */
   h1, .hero-serif-headline {
-    font-size: clamp(34px, 10vw, 48px) !important;
-    line-height: 1.02 !important;
+    font-size: clamp(34px, 8.8vw, 46px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em !important;
     margin-bottom: 1rem !important;
-    text-wrap: balance;
   }
 
   h2, .section-header h2, .serif-title-white, .cat-block-header h2, .pl-headline {
@@ -4935,6 +4935,8 @@ textarea:focus {
 
   h1, .hero-serif-headline {
     font-size: 32px !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.05 !important;
   }
 
   h2, .section-header h2, .serif-title-white, .cat-block-header h2, .pl-headline {
@@ -4947,6 +4949,20 @@ textarea:focus {
 
   .pulingo-attr-item span {
     font-size: 0.68rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  h1, .hero-serif-headline {
+    font-size: 29px !important;
+    letter-spacing: -0.025em !important;
+  }
+}
+
+@media (max-width: 320px) {
+  h1, .hero-serif-headline {
+    font-size: 25px !important;
+    letter-spacing: -0.025em !important;
   }
 }
 
