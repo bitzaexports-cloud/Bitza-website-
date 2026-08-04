@@ -2166,7 +2166,7 @@ header.scrolled .logo-container img {
   opacity: 0.4;
 }
 
-/* Website by GROZERA Black Capsule Badge Credit */
+/* Website by GROZERA — Muted Premium Signature Badge */
 .bottom-right {
   display: inline-flex;
   align-items: center;
@@ -2178,63 +2178,70 @@ header.scrolled .logo-container img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 16px;
-  background-color: #000000;
-  border: 1px solid rgba(250, 246, 238, 0.22);
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(250, 246, 238, 0.1);
   border-radius: 9999px;
   text-decoration: none;
-  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: all 200ms ease;
+  box-shadow: none;
   white-space: nowrap;
   box-sizing: border-box;
   vertical-align: middle;
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
 }
 
 .credit-label {
-  color: rgba(250, 246, 238, 0.75);
-  font-size: 12.5px;
-  font-weight: 500;
+  color: rgba(250, 246, 238, 0.5);
+  font-size: 11px;
+  font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1;
 }
 
 .grozera-btn-logo {
-  width: 88px;
+  width: 68px;
   height: auto;
-  max-height: 15px;
+  max-height: 11px;
   display: inline-block;
   vertical-align: middle;
   object-fit: contain;
   border-radius: 0;
-  transition: transform 250ms ease;
+  opacity: 0.7;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .grozera-btn-arrow {
-  color: var(--color-orange);
-  font-size: 12.5px;
-  font-weight: 700;
+  color: rgba(250, 246, 238, 0.5);
+  font-size: 10px;
+  font-weight: 600;
   line-height: 1;
-  transition: transform 250ms ease;
+  transition: color 200ms ease, transform 200ms ease;
 }
 
-/* Black Capsule Badge Hover State */
+/* Subtle Signature Hover State */
 .grozera-btn-credit:hover {
-  background-color: #080808;
-  border-color: var(--color-orange);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(233, 82, 36, 0.25), 0 4px 12px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(250, 246, 238, 0.22);
+  transform: none;
+  box-shadow: none;
+}
+
+.grozera-btn-credit:hover .credit-label {
+  color: rgba(250, 246, 238, 0.75);
 }
 
 .grozera-btn-credit:hover .grozera-btn-logo {
-  transform: scale(1.04);
+  opacity: 0.95;
+  transform: none;
 }
 
 .grozera-btn-credit:hover .grozera-btn-arrow {
-  transform: translate(2px, -2px);
-  color: #FF6B3D;
+  color: var(--color-orange);
+  opacity: 0.9;
+  transform: translate(1px, -1px);
 }
 
 /* Responsive Footer */
@@ -5285,46 +5292,45 @@ textarea:focus {
     width: 100% !important;
   }
 
-  /* Website by Grozera Capsule Badge Credit — Mobile & Tablet Responsive Alignment */
+  /* Website by Grozera Signature Badge — Mobile & Tablet Responsive Alignment */
   .grozera-btn-credit {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: auto !important;
-    max-width: 215px !important;
-    min-width: 190px !important;
-    height: 40px !important;
-    padding: 0 14px !important;
-    gap: 8px !important;
-    margin: 8px auto 0 auto !important;
-    background-color: #000000 !important;
-    border: 1px solid rgba(250, 246, 238, 0.22) !important;
+    height: 30px !important;
+    padding: 0 10px !important;
+    gap: 6px !important;
+    margin: 6px auto 0 auto !important;
+    background-color: rgba(0, 0, 0, 0.28) !important;
+    border: 1px solid rgba(250, 246, 238, 0.1) !important;
     border-radius: 9999px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: none !important;
     box-sizing: border-box !important;
     text-decoration: none !important;
   }
 
   .grozera-btn-credit .credit-label {
-    font-size: 12.5px !important;
-    font-weight: 500 !important;
-    color: rgba(250, 246, 238, 0.75) !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    color: rgba(250, 246, 238, 0.5) !important;
     line-height: 1 !important;
   }
 
   .grozera-btn-credit .grozera-btn-logo {
-    width: 88px !important;
+    width: 68px !important;
     height: auto !important;
-    max-height: 15px !important;
+    max-height: 11px !important;
     object-fit: contain !important;
+    opacity: 0.7 !important;
     display: inline-block !important;
     vertical-align: middle !important;
   }
 
   .grozera-btn-credit .grozera-btn-arrow {
-    font-size: 12.5px !important;
-    font-weight: 700 !important;
-    color: var(--color-orange) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: rgba(250, 246, 238, 0.5) !important;
     line-height: 1 !important;
   }
 }
