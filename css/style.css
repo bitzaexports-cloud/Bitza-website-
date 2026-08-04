@@ -4479,6 +4479,114 @@ textarea:focus {
     gap: 2rem !important;
   }
 
+  /* Rooted in Kerala / The Land of Spices — Mobile Vertical Stacked Composition */
+  .about-intro-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.2rem !important;
+  }
+
+  .about-text {
+    width: 100% !important;
+  }
+
+  .about-visual-composition {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-height: auto !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .about-main-image-wrap {
+    position: static !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 24px rgba(0, 30, 20, 0.08) !important;
+    margin: 0 !important;
+  }
+
+  .about-main-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  .about-overlay-closeup {
+    position: static !important;
+    width: 85% !important;
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: none !important;
+    box-shadow: 0 8px 20px rgba(0, 30, 20, 0.1) !important;
+    margin-top: 14px !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    align-self: flex-start !important;
+  }
+
+  .about-closeup-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  .about-overlay-card {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    background-color: var(--color-forest) !important;
+    color: var(--color-ivory) !important;
+    padding: 28px 24px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 12px 30px rgba(0, 30, 20, 0.12) !important;
+    margin-top: 22px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-overlay-card .card-eyebrow {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    color: var(--color-orange) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .about-overlay-card .card-text {
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    color: rgba(250, 246, 238, 0.9) !important;
+    margin-bottom: 1.5rem !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+  }
+
+  .about-overlay-card .card-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    color: var(--color-ivory) !important;
+    letter-spacing: 0.08em !important;
+    margin-top: 0.5rem !important;
+  }
+
   /* Values Section 01 / 02 / 03 Mobile Vertical Stack */
   .about-highlights-row {
     display: flex !important;
