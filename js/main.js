@@ -161,25 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
       element.style.transform = 'none';
     });
   }
-
-  // --- 5. Language Selector Dropdown Interaction ---
-  const langSelectors = document.querySelectorAll('.lang-selector');
-  if (langSelectors.length > 0) {
-    langSelectors.forEach(langSelector => {
-      langSelector.addEventListener('click', () => {
-        const langs = ['EN', 'FR', 'AR', 'ES'];
-        const currentLangSpan = langSelector.querySelector('span');
-        if (currentLangSpan) {
-          const currentIdx = langs.indexOf(currentLangSpan.textContent.trim());
-          const nextLang = langs[(currentIdx + 1) % langs.length];
-          
-          document.querySelectorAll('.lang-selector span').forEach(span => {
-            span.textContent = nextLang;
-          });
-        }
-      });
-    });
-  }
 });
 
 
