@@ -2166,6 +2166,40 @@ header.scrolled .logo-container img {
   opacity: 0.4;
 }
 
+/* Website Credit in Footer */
+.site-credit {
+  color: rgba(250, 246, 238, 0.65);
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.grozera-link {
+  color: var(--color-orange) !important;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  transition: color 250ms ease;
+}
+
+.grozera-arrow {
+  display: inline-block;
+  font-size: 0.85em;
+  transition: transform 250ms ease;
+}
+
+.grozera-link:hover {
+  color: #ff6b3d !important;
+}
+
+.grozera-link:hover .grozera-arrow {
+  transform: translate(2.5px, -2.5px);
+}
+
 /* Responsive Footer */
 @media (max-width: 992px) {
   .footer-brand-grid {
