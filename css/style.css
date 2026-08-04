@@ -2166,52 +2166,61 @@ header.scrolled .logo-container img {
   opacity: 0.4;
 }
 
-/* Website Credit in Footer with Official Grozera Logo */
-.site-credit {
-  color: rgba(250, 246, 238, 0.65);
-  font-size: 0.82rem;
+/* Website by GROZERA Button Credit */
+.grozera-btn-credit {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.grozera-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  gap: 9px;
+  padding: 6px 14px;
+  background: rgba(250, 246, 238, 0.05);
+  border: 1px solid rgba(250, 246, 238, 0.14);
+  border-radius: 20px;
   text-decoration: none;
-  color: var(--color-orange) !important;
-  transition: transform 220ms ease;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
 }
 
-.grozera-logo-img {
-  height: 19px;
+.credit-label {
+  color: rgba(250, 246, 238, 0.72);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.grozera-btn-logo {
+  height: 18px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
-  opacity: 0.88;
-  transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
   object-fit: contain;
+  opacity: 0.92;
+  transition: transform 250ms ease, opacity 250ms ease, filter 250ms ease;
 }
 
-.grozera-arrow {
-  display: inline-block;
-  font-size: 0.85em;
+.grozera-btn-arrow {
   color: var(--color-orange);
-  transition: transform 220ms ease, color 220ms ease;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: transform 250ms ease;
 }
 
-.grozera-link:hover .grozera-logo-img {
+/* Button Hover State */
+.grozera-btn-credit:hover {
+  background: rgba(233, 82, 36, 0.12);
+  border-color: rgba(233, 82, 36, 0.38);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 14px rgba(233, 82, 36, 0.18);
+}
+
+.grozera-btn-credit:hover .grozera-btn-logo {
   opacity: 1;
-  filter: brightness(1.15);
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
-.grozera-link:hover .grozera-arrow {
+.grozera-btn-credit:hover .grozera-btn-arrow {
   transform: translate(2px, -2px);
-  color: #ff6b3d;
+  color: #FF6B3D;
 }
 
 /* Responsive Footer */
