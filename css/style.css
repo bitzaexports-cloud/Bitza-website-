@@ -202,16 +202,17 @@ header.scrolled {
 .nav-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1360px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 32px;
+  padding-left: clamp(1.5rem, 5vw, 5rem);
+  padding-right: clamp(1.5rem, 5vw, 5rem);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  margin-right: clamp(24px, 2.5vw, 40px);
   flex-shrink: 0;
 }
 
@@ -231,7 +232,7 @@ header.scrolled .logo-container img {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: clamp(14px, 1.8vw, 30px);
+  gap: clamp(14px, 1.6vw, 26px);
   margin: 0;
   padding: 0;
 }
@@ -330,7 +331,6 @@ header.scrolled .logo-container img {
 .nav-right-actions {
   display: flex;
   align-items: center;
-  margin-left: clamp(32px, 3.5vw, 56px);
   flex-shrink: 0;
 }
 
