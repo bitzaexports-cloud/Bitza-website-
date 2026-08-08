@@ -1090,7 +1090,7 @@ header.scrolled .logo-container img {
 
 .products-horizontal-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.8rem;
 }
 
@@ -2452,6 +2452,10 @@ header.scrolled .logo-container img {
   .goli-flavours-grid {
     grid-template-columns: 1fr;
   }
+
+  .products-horizontal-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ==========================================================================
@@ -3384,10 +3388,10 @@ header.scrolled .logo-container img {
   margin-top: 0.2rem;
 }
 
-/* 3-Column Controlled Grid */
+/* 2-Column Balanced Catalogue Grid */
 .products-3col-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px 28px;
   width: 100%;
 }
