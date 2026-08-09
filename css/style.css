@@ -2101,11 +2101,38 @@ header.scrolled .logo-container img {
   transform: translateX(0);
 }
 
-/* Contact Column */
+/* Contact Column & Office Blocks */
 .footer-contact-info p {
   font-size: 0.92rem;
   color: rgba(250, 246, 238, 0.8);
   margin-bottom: 0.4rem;
+}
+
+.footer-office-block {
+  margin-bottom: 0.8rem;
+}
+
+.footer-office-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-orange);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.footer-office-address {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(250, 246, 238, 0.82);
+  margin-bottom: 0.2rem !important;
+}
+
+.footer-office-phone {
+  font-size: 0.88rem;
+  margin-top: 0.15rem;
 }
 
 .contact-link {
