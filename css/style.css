@@ -5463,6 +5463,125 @@ textarea:focus {
 }
 
 /* --------------------------------------------------------------------------
+   SECTION: CERTIFICATIONS & COMPLIANCE TRUST BAR
+   -------------------------------------------------------------------------- */
+.certifications-section {
+  background-color: #FAF7F2;
+  padding: 4.5rem 0;
+  border-top: 1px solid rgba(6, 61, 46, 0.08);
+  border-bottom: 1px solid rgba(6, 61, 46, 0.08);
+}
+
+.certifications-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem auto;
+}
+
+.certifications-headline {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin: 0.4rem 0 0.8rem 0;
+  letter-spacing: -0.01em;
+}
+
+.certifications-subtext {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: rgba(11, 37, 28, 0.78);
+  line-height: 1.6;
+}
+
+.certifications-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.cert-item {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.cert-item:hover {
+  transform: translateY(-2px);
+}
+
+.cert-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.cert-desc {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: rgba(11, 37, 28, 0.72);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cert-divider {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(6, 61, 46, 0.15);
+  flex-shrink: 0;
+}
+
+/* Responsive Layout */
+@media (max-width: 992px) {
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+
+  .cert-divider {
+    display: none;
+  }
+
+  .cert-item:nth-child(9) {
+    grid-column: 1 / -1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .certifications-section {
+    padding: 3.5rem 0;
+  }
+
+  .certifications-headline {
+    font-size: 1.75rem;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .cert-item:nth-child(9) {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .cert-name {
+    font-size: 1.35rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    4. ACCESSIBILITY & REDUCED MOTION PREFERENCE
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
