@@ -504,7 +504,7 @@ header.scrolled .logo-container img {
 
 .hero-split-wrapper {
   display: grid;
-  grid-template-columns: 48% 52%;
+  grid-template-columns: 44% 56%;
   min-height: 580px;
   max-height: 640px;
   align-items: stretch;
@@ -718,14 +718,14 @@ header.scrolled .logo-container img {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 25%;
+  width: 16%;
   z-index: 2;
   pointer-events: none;
   background: linear-gradient(
     to right,
     #FAF6EE 0%,
-    rgba(250, 246, 238, 0.85) 25%,
-    rgba(250, 246, 238, 0.3) 60%,
+    rgba(250, 246, 238, 0.75) 35%,
+    rgba(250, 246, 238, 0.2) 70%,
     transparent 100%
   );
 }
@@ -2361,7 +2361,7 @@ header.scrolled .logo-container img {
 @media (max-width: 992px) {
 
   .hero-split-wrapper {
-    grid-template-columns: 48% 52%;
+    grid-template-columns: 44% 56%;
     min-height: 480px;
     max-height: 560px;
   }
