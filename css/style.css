@@ -1319,6 +1319,38 @@ header.scrolled .logo-container img {
   margin: 0;
 }
 
+/* Goli Showcase Card Unit */
+.goli-showcase-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(250, 246, 238, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.goli-showcase-img-wrap {
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 260px;
+}
+
+.goli-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.goli-showcase-content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ==========================================================================
    PULINGO TAMARIND PRODUCT SPOTLIGHT (WARM CREAM CONTAINER)
    ========================================================================== */
@@ -5134,6 +5166,49 @@ textarea:focus {
   }
 
   /* Goli Soda Section Mobile Optimization */
+  .goli-showcase-card {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    padding: 26px 24px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    gap: 0 !important;
+  }
+
+  .goli-showcase-img-wrap {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .goli-showcase-content {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .goli-showcase-content h3 {
+    font-size: 1.85rem !important;
+    margin: 0.5rem 0 0.7rem 0 !important;
+  }
+
+  .goli-showcase-content p {
+    font-size: 0.96rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.1rem !important;
+  }
+
+  .goli-showcase-content .btn-hero-primary {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
   .goli-img-area,
   .beverage-img-stage {
     width: 100% !important;
