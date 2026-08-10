@@ -5623,6 +5623,12 @@ textarea:focus {
   .cert-divider {
     display: none;
   }
+
+  .cert-item:nth-child(9) {
+    grid-column: 1 / -1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 576px) {
@@ -5636,16 +5642,19 @@ textarea:focus {
 
   .certifications-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1.2rem;
+    gap: 2rem 1rem;
     justify-items: center;
     align-items: center;
+  }
+
+  .cert-item:nth-child(9) {
+    grid-column: 1 / -1;
+    max-width: none;
   }
 
   .cert-logo {
     max-width: 110px;
     max-height: 70px;
-  }
-}
   }
 }
 
