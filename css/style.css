@@ -525,17 +525,19 @@ header.scrolled .logo-container img {
   display: block;
   -webkit-mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.42) 0%,
-    rgba(0, 0, 0, 0.65) 12%,
-    rgba(0, 0, 0, 0.90) 24%,
-    #000 32%
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.45) 25%,
+    rgba(0, 0, 0, 0.85) 40%,
+    #000 55%
   );
   mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.42) 0%,
-    rgba(0, 0, 0, 0.65) 12%,
-    rgba(0, 0, 0, 0.90) 24%,
-    #000 32%
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.45) 25%,
+    rgba(0, 0, 0, 0.85) 40%,
+    #000 55%
   );
 }
 
