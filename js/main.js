@@ -226,3 +226,103 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+/**
+ * Global Bitza Premium Confirmation Modal System
+ */
+window.showBitzaSuccessModal = function(options = {}) {
+  const eyebrow = options.eyebrow || 'ENQUIRY RECEIVED';
+  const title = options.title || 'Thank You!';
+  const message = options.message || 'Your enquiry has been successfully recorded and sent to our export trade desk. A representative will review your message and contact you shortly.';
+  const buttonText = options.buttonText || 'CONTINUE BROWSING';
+  const details = options.details || null;
+
+  // Remove existing modal if any
+  const existingModal = document.getElementById('bitzaSuccessModal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  // Create backdrop container
+  const backdrop = document.createElement('div');
+  backdrop.id = 'bitzaSuccessModal';
+  backdrop.className = 'bitza-modal-backdrop';
+
+  let detailsHtml = '';
+  if (details && typeof details === 'object') {
+    let rowsHtml = '';
+    for (const [key, val] of Object.entries(details)) {
+      if (val) {
+        rowsHtml += `
+          <div class="detail-row">
+            <span class="detail-label">${key}</span>
+            <span class="detail-value">${val}</span>
+          </div>
+        `;
+      }
+    }
+    if (rowsHtml) {
+      detailsHtml = `<div class="bitza-modal-details-box">${rowsHtml}</div>`;
+    }
+  }
+
+  backdrop.innerHTML = `
+    <div class="bitza-modal-card">
+      <button class="bitza-modal-close-btn" id="bitzaModalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="bitza-modal-icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="bitza-modal-eyebrow">${eyebrow}</span>
+      <h3 class="bitza-modal-title">${title}</h3>
+      <p class="bitza-modal-body">${message}</p>
+      
+      ${detailsHtml}
+
+      <div class="bitza-modal-actions">
+        <button class="bitza-modal-btn-primary" id="bitzaModalActionBtn">
+          ${buttonText} <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(backdrop);
+  document.body.style.overflow = 'hidden';
+
+  // Trigger smooth enter animation
+  requestAnimationFrame(() => {
+    backdrop.classList.add('is-active');
+  });
+
+  const closeModal = () => {
+    backdrop.classList.remove('is-active');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      backdrop.remove();
+      if (typeof options.onClose === 'function') {
+        options.onClose();
+      }
+    }, 400);
+  };
+
+  document.getElementById('bitzaModalCloseBtn')?.addEventListener('click', closeModal);
+  document.getElementById('bitzaModalActionBtn')?.addEventListener('click', closeModal);
+
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeModal();
+    }
+  });
+
+  const handleEsc = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.removeEventListener('keydown', handleEsc);
+    }
+  };
+  document.addEventListener('keydown', handleEsc);
+};

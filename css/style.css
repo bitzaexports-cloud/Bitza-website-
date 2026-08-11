@@ -5669,3 +5669,249 @@ textarea:focus {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   BITZA SUCCESS CONFIRMATION MODAL SYSTEM
+   ========================================================================== */
+.bitza-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(3, 42, 31, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bitza-modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bitza-modal-card {
+  position: relative;
+  background-color: #FAF6EE;
+  background-image: radial-gradient(circle at 50% 0%, rgba(233, 82, 36, 0.08), transparent 70%);
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  border: 1px solid rgba(6, 61, 46, 0.14);
+  box-shadow: 0 30px 70px -15px rgba(3, 42, 31, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  padding: 2.75rem 2.25rem 2.25rem;
+  text-align: center;
+  transform: translateY(24px) scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.bitza-modal-backdrop.is-active .bitza-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.bitza-modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(6, 61, 46, 0.05);
+  border: 1px solid rgba(6, 61, 46, 0.1);
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.bitza-modal-close-btn:hover {
+  background: var(--color-orange);
+  color: #ffffff;
+  border-color: var(--color-orange);
+  transform: rotate(90deg);
+}
+
+.bitza-modal-icon-badge {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(6, 61, 46, 0.08) 0%, rgba(233, 82, 36, 0.15) 100%);
+  border: 2px solid rgba(6, 61, 46, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-orange);
+  position: relative;
+  box-shadow: 0 12px 28px -6px rgba(233, 82, 36, 0.25);
+  animation: modalPulse 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes modalPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 12px 28px -6px rgba(233, 82, 36, 0.25);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 16px 36px -4px rgba(233, 82, 36, 0.4);
+  }
+}
+
+.bitza-modal-icon-badge svg {
+  width: 44px;
+  height: 44px;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: checkmarkDraw 0.65s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+@keyframes checkmarkDraw {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.bitza-modal-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 0.5rem;
+}
+
+.bitza-modal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 4.2vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-forest);
+  line-height: 1.15;
+  margin-bottom: 0.85rem;
+}
+
+.bitza-modal-body {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  color: rgba(11, 37, 28, 0.82);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bitza-modal-details-box {
+  background: rgba(6, 61, 46, 0.04);
+  border: 1px solid rgba(6, 61, 46, 0.1);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.bitza-modal-details-box .detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(6, 61, 46, 0.12);
+}
+
+.bitza-modal-details-box .detail-row:last-child {
+  border-bottom: none;
+}
+
+.bitza-modal-details-box .detail-label {
+  color: rgba(11, 37, 28, 0.6);
+  font-weight: 500;
+}
+
+.bitza-modal-details-box .detail-value {
+  color: var(--color-forest);
+  font-weight: 600;
+  text-align: right;
+}
+
+.bitza-modal-actions {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.bitza-modal-btn-primary {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1.05rem 1.75rem;
+  border-radius: 50px;
+  border: 1px solid var(--color-forest);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 8px 22px -4px rgba(6, 61, 46, 0.3);
+}
+
+.bitza-modal-btn-primary:hover {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+  box-shadow: 0 12px 28px -4px rgba(233, 82, 36, 0.42);
+  transform: translateY(-2px);
+}
+
+.bitza-modal-btn-primary .arrow {
+  transition: transform 0.3s ease;
+}
+
+.bitza-modal-btn-primary:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 576px) {
+  .bitza-modal-card {
+    padding: 2.25rem 1.5rem 1.75rem;
+    border-radius: 18px;
+  }
+  .bitza-modal-icon-badge {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.25rem;
+  }
+  .bitza-modal-icon-badge svg {
+    width: 38px;
+    height: 38px;
+  }
+  .bitza-modal-title {
+    font-size: 1.8rem;
+  }
+  .bitza-modal-body {
+    font-size: 0.95rem;
+  }
+}
+

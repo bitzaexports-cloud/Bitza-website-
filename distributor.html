@@ -253,57 +253,65 @@
             <p>Complete the details below and our export team will get in touch.</p>
           </div>
 
-          <form id="distributorForm" action="#" method="POST" novalidate>
+          <form id="distributorForm" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSfHVmw19eQwhSQpI8Mr4vEs8O8apbr2KQt_hCAiFyzK2mtxEw/formResponse?pli=1" method="POST" target="hidden_google_dist_iframe">
+            <input type="hidden" name="fvv" value="1">
+            <input type="hidden" name="partialResponse" value='[null,null,"7731920359227657817"]'>
+            <input type="hidden" name="pageHistory" value="0">
+            <input type="hidden" name="fbzx" value="7731920359227657817">
+
             <div class="distributor-form-grid">
               
               <!-- ROW 1 -->
               <div>
                 <label for="fullName" class="distributor-label">Full Name *</label>
-                <input type="text" id="fullName" name="fullName" class="distributor-input" required placeholder="e.g. Alexander Vance">
+                <input type="text" id="fullName" name="entry.1377412854" class="distributor-input" required placeholder="e.g. Alexander Vance">
               </div>
 
               <div>
                 <label for="companyName" class="distributor-label">Company Name *</label>
-                <input type="text" id="companyName" name="companyName" class="distributor-input" required placeholder="e.g. Al-Madina Trading Co.">
+                <input type="text" id="companyName" name="entry.502213540" class="distributor-input" required placeholder="e.g. Al-Madina Trading Co.">
               </div>
 
               <!-- ROW 2 -->
               <div>
                 <label for="email" class="distributor-label">Business Email *</label>
-                <input type="email" id="email" name="email" class="distributor-input" required placeholder="purchasing@company.com">
+                <input type="email" id="email" name="entry.1309880016" class="distributor-input" required placeholder="purchasing@company.com">
               </div>
 
               <div>
                 <label for="phone" class="distributor-label">Phone / WhatsApp *</label>
-                <input type="tel" id="phone" name="phone" class="distributor-input" required placeholder="+971 50 123 4567">
+                <input type="tel" id="phone" name="entry.82260208" class="distributor-input" required placeholder="+971 50 123 4567">
               </div>
 
               <!-- ROW 3 -->
               <div>
                 <label for="targetCountry" class="distributor-label">Country / Market *</label>
-                <input type="text" id="targetCountry" name="targetCountry" class="distributor-input" required placeholder="e.g. Saudi Arabia, UAE, UK">
+                <input type="text" id="targetCountry" name="entry.581904180" class="distributor-input" required placeholder="e.g. Saudi Arabia, UAE, UK">
               </div>
 
               <div>
                 <label for="primaryInterest" class="distributor-label">Product Interested In *</label>
-                <input type="text" id="primaryInterest" name="primaryInterest" class="distributor-input" required placeholder="e.g. Spices, Beverages, Fresh Produce...">
+                <input type="text" id="primaryInterest" name="entry.1855070341" class="distributor-input" required placeholder="e.g. Spices, Beverages, Fresh Produce...">
               </div>
 
               <!-- FULL WIDTH MESSAGE -->
               <div class="form-group-full">
                 <label for="message" class="distributor-label">Message / Requirements *</label>
-                <textarea id="message" name="message" class="distributor-textarea" required placeholder="Describe your business background, target distribution network, or specific product requirements..."></textarea>
+                <textarea id="message" name="entry.372716521" class="distributor-textarea" required placeholder="Describe your business background, target distribution network, or specific product requirements..."></textarea>
               </div>
 
               <!-- SUBMIT BUTTON -->
               <div class="form-group-full" style="margin-top: 0.5rem;">
-                <button type="submit" class="btn btn-hero-primary block-cta" style="width: 100%; height: 56px; justify-content: center; font-size: 0.92rem;">SUBMIT DISTRIBUTOR ENQUIRY <span class="arrow">→</span></button>
+                <button type="submit" id="distributorSubmitBtn" class="btn btn-hero-primary block-cta" style="width: 100%; height: 56px; justify-content: center; font-size: 0.92rem;">SUBMIT DISTRIBUTOR ENQUIRY <span class="arrow">→</span></button>
               </div>
 
             </div>
 
+            <div id="distributorFormStatus" style="display: none; margin-top: 1rem; padding: 1rem 1.25rem; border-radius: 8px; font-size: 0.95rem; line-height: 1.5; font-weight: 500;"></div>
+
             <p class="form-privacy-note">Your information will only be used to respond to your business enquiry.</p>
           </form>
+          <iframe name="hidden_google_dist_iframe" id="hidden_google_dist_iframe" style="display:none;"></iframe>
         </div>
 
       </div>
@@ -454,11 +462,63 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const distributorForm = document.getElementById('distributorForm');
+      const submitBtn = document.getElementById('distributorSubmitBtn');
+      const statusDiv = document.getElementById('distributorFormStatus');
+
       if (distributorForm) {
-        distributorForm.addEventListener('submit', (e) => {
+        distributorForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          alert('Thank you for submitting your distributor enquiry! Our export team will review your business credentials and get back to you shortly.');
-          distributorForm.reset();
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `SUBMITTING... <span class="arrow">⏳</span>`;
+          }
+
+          const formData = new FormData(distributorForm);
+
+          fetch(distributorForm.action, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+          }).then(() => {
+            handleSuccess();
+          }).catch(() => {
+            distributorForm.submit();
+            handleSuccess();
+          });
+
+          function handleSuccess() {
+            const fullName = distributorForm.querySelector('[name="entry.1377412854"]')?.value || '';
+            const email = distributorForm.querySelector('[name="entry.1309880016"]')?.value || '';
+            const company = distributorForm.querySelector('[name="entry.502213540"]')?.value || '';
+
+            if (window.showBitzaSuccessModal) {
+              window.showBitzaSuccessModal({
+                eyebrow: 'DISTRIBUTOR ENQUIRY RECEIVED',
+                title: 'Application Received!',
+                message: 'Thank you for submitting your distributor application. Our export trade team will review your credentials and contact you shortly.',
+                details: {
+                  'Applicant Name': fullName,
+                  'Company': company,
+                  'Email': email
+                },
+                buttonText: 'CONTINUE BROWSING'
+              });
+            } else if (statusDiv) {
+              statusDiv.style.display = 'block';
+              statusDiv.style.backgroundColor = 'rgba(34, 197, 94, 0.12)';
+              statusDiv.style.color = '#15803d';
+              statusDiv.style.border = '1px solid rgba(34, 197, 94, 0.3)';
+              statusDiv.innerHTML = '<strong>✓ Distributor Enquiry Submitted!</strong><br>Thank you for your application. Our export trade desk will review your business credentials and contact you shortly.';
+            }
+
+            distributorForm.reset();
+
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = `SUBMIT DISTRIBUTOR ENQUIRY <span class="arrow">→</span>`;
+            }
+          }
         });
       }
     });
