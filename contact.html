@@ -235,37 +235,11 @@
               </div>
 
               <div>
-                <label for="enquiryType" class="contact-label">Enquiry Type *</label>
-                <select id="enquiryType" name="enquiryType" class="contact-select" required>
-                  <option value="" disabled selected>Select enquiry type</option>
-                  <option value="Product Enquiry">Product Enquiry</option>
-                  <option value="Distribution">Distribution</option>
-                  <option value="Private Label">Private Label</option>
-                  <option value="Bulk Wholesale">Bulk / Wholesale Order</option>
-                  <option value="Export Enquiry">Export Enquiry</option>
-                  <option value="General Business">General Business Enquiry</option>
-                </select>
+                <label for="productInterest" class="contact-label">Product Interested In *</label>
+                <input type="text" id="productInterest" name="productInterest" class="contact-input" required placeholder="e.g. Black Pepper, Goli Soda, Cardamom...">
               </div>
 
-              <!-- ROW 4 FULL WIDTH: PRODUCT INTEREST -->
-              <div class="contact-form-full">
-                <label for="productInterest" class="contact-label">Product Interest *</label>
-                <select id="productInterest" name="productInterest" class="contact-select" required>
-                  <option value="" disabled selected>Select primary product of interest</option>
-                  <option value="Black Pepper">Black Pepper (Malabar Export Grades)</option>
-                  <option value="Green Cardamom">Green Cardamom (Alleppey Grades)</option>
-                  <option value="Goli Soda">Goli Soda (Glass & PET Bottle Options)</option>
-                  <option value="Pulingo Tamarind">Pulingo Tamarind (Sparkling Beverage)</option>
-                  <option value="Fresh Fruits">Fresh Fruits (Export Tropical Fruits)</option>
-                  <option value="Fresh Vegetables">Fresh Vegetables (Export Grade)</option>
-                  <option value="Spices">Spices (General Portfolio)</option>
-                  <option value="Beverages">Beverages (General Portfolio)</option>
-                  <option value="Fresh Produce">Fresh Produce (General Portfolio)</option>
-                  <option value="Multiple Products">Multiple Products Portfolio</option>
-                </select>
-              </div>
-
-              <!-- ROW 5 FULL WIDTH: MESSAGE -->
+              <!-- ROW 4 FULL WIDTH: MESSAGE -->
               <div class="contact-form-full">
                 <label for="message" class="contact-label">Message / Requirements *</label>
                 <textarea id="message" name="message" class="contact-textarea" required placeholder="Detail your specific product grade requirements, packaging expectations, destination port, or annual volume requirements..."></textarea>
@@ -447,23 +421,19 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const enquiryTypeSelect = document.getElementById('enquiryType');
+      const productInput = document.getElementById('productInterest');
       const messageTextarea = document.getElementById('message');
       
-      const subjectParam = urlParams.get('subject');
-      const productParam = urlParams.get('product');
+      const productParam = urlParams.get('product') || urlParams.get('subject');
 
-      if (enquiryTypeSelect && subjectParam) {
-        if (subjectParam === 'Private Label') {
-          enquiryTypeSelect.value = 'Private Label';
-        } else if (subjectParam === 'Distributor') {
-          enquiryTypeSelect.value = 'Distribution';
+      if (productParam) {
+        const decodedParam = decodeURIComponent(productParam);
+        if (productInput) {
+          productInput.value = decodedParam;
         }
-      }
-
-      if (productParam && messageTextarea) {
-        if (enquiryTypeSelect) enquiryTypeSelect.value = 'Product Enquiry';
-        messageTextarea.value = `I am interested in requesting an export quote for ${decodeURIComponent(productParam)}. Please provide standard B2B pricing details and minimum order quantities.`;
+        if (messageTextarea && !messageTextarea.value) {
+          messageTextarea.value = `I am interested in requesting an export quote for ${decodedParam}. Please provide standard B2B pricing details and minimum order quantities.`;
+        }
       }
 
       const contactForm = document.getElementById('contactForm');

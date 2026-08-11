@@ -213,34 +213,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectedProduct = urlParams.get('product') || urlParams.get('subject');
   
   if (selectedProduct) {
-    const productSelect = document.getElementById('productInterest');
-    const enquiryTypeSelect = document.getElementById('enquiryType');
-    
-    if (productSelect) {
-      const searchVal = selectedProduct.toLowerCase().trim();
-      let matched = false;
+    const productInput = document.getElementById('productInterest') || document.getElementById('primaryInterest');
+    if (productInput) {
+      productInput.value = decodeURIComponent(selectedProduct);
       
-      for (let i = 0; i < productSelect.options.length; i++) {
-        const optionVal = productSelect.options[i].value.toLowerCase().trim();
-        const optionText = productSelect.options[i].text.toLowerCase().trim();
-        
-        if (optionVal === searchVal || optionText.includes(searchVal) || searchVal.includes(optionVal)) {
-          productSelect.selectedIndex = i;
-          matched = true;
-          break;
-        }
-      }
-      
-      if (!matched) {
-        const newOpt = new Option(selectedProduct, selectedProduct, true, true);
-        productSelect.add(newOpt);
-      }
-
-      if (enquiryTypeSelect && !enquiryTypeSelect.value) {
-        enquiryTypeSelect.value = "Product Enquiry";
-      }
-
-      const formCard = document.querySelector('.contact-form-card') || document.getElementById('contactForm');
+      const formCard = document.querySelector('.contact-form-card') || document.querySelector('.enquiry-form-card') || document.getElementById('contactForm');
       if (formCard) {
         setTimeout(() => {
           formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
