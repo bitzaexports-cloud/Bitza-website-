@@ -492,13 +492,13 @@ header.scrolled .logo-container img {
 }
 
 /* ==========================================================================
-   3. HERO — SINGLE UN-CROPPED PHOTOGRAPHIC HERO BANNER
+   3. HERO — FULL-WIDTH BANNER WITH FEATHERED LEFT READABILITY FADE
    ========================================================================== */
 .hero-editorial {
   position: relative;
   width: 100%;
-  min-height: 540px;
-  max-height: 680px;
+  min-height: 600px;
+  max-height: 660px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -515,16 +515,30 @@ header.scrolled .logo-container img {
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .hero-bg-full-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: right center;
+  object-fit: cover;
+  object-position: center right;
   display: block;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.45) 25%,
+    rgba(0, 0, 0, 0.85) 40%,
+    #000 55%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.45) 25%,
+    rgba(0, 0, 0, 0.85) 40%,
+    #000 55%
+  );
 }
 
 .hero-content-wrapper {
