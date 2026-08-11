@@ -523,6 +523,10 @@ header.scrolled .logo-container img {
   object-fit: cover;
   object-position: center right;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hero-content-wrapper {
