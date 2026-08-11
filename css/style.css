@@ -714,22 +714,7 @@ header.scrolled .logo-container img {
 }
 
 .hero-image-mask-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 42%;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(
-    to right,
-    #FAF6EE 0%,
-    #FAF6EE 12%,
-    rgba(250, 246, 238, 0.85) 32%,
-    rgba(250, 246, 238, 0.5) 58%,
-    rgba(250, 246, 238, 0.18) 82%,
-    transparent 100%
-  );
+  display: none;
 }
 
 .hero-product-img {
@@ -739,8 +724,6 @@ header.scrolled .logo-container img {
   object-fit: cover;
   object-position: center right;
   display: block;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 12%, rgba(0, 0, 0, 0.82) 28%, #000 45%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 12%, rgba(0, 0, 0, 0.82) 28%, #000 45%);
 }
 
 /* ==========================================================================
